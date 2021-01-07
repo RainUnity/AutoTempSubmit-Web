@@ -1,4 +1,4 @@
-# AutoTempSubmit-UI
+# AutoTempSubmit-Web
 
 指点天下健康日志自动提交
 
