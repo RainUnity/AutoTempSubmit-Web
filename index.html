@@ -7,48 +7,123 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.3/new.min.css" />
     <script src="./js/index.js"></script>
+
+    <style>
+        input,button {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h2>AutoTempSubmit</h2>
+        <p>指点天下健康日志自动提交</p>
     </header>
 
     <form>
-        学校：<input type="text" name="address" />
-        <br/>
-        lng：<input type="number" name="lng" />
-        <br/>
-        lat: <input type="number" name="lat" />
-        <br/>
-        姓名：<input type="text" name="name" />
-        <br/>
-        手机：<input type="tel" name="phone" />
-        <br/>
-        身份证号：<input type="text" name="credentialCode" />
-        <br/>
-        学院：<input type="text" name="college" />
-        <br/>
-        专业：<input type="text" name="major" />
-        <br/>
-        班级：<input type="text" name="className" />
-        <br/>
-        学号：<input type="text" name="code" />
-        <br/>
-        当前地址：<input type="text" name="nowLocation" placeholder="河南省-郑州市-惠济区" />
-        <br/>
-        体温：<input type="number" name="temperature" placeholder="36.6" />
-        <br/>
+        <table>
+            <tr>
+                <td>学校</td>
+                <td>
+                    <input type="text" name="address" />
+                </td>
+            </tr>
+            <tr>
+                <td>lng</td>
+                <td>
+                    <input type="number" name="lng" />
+                </td>
+            </tr>
+            <tr>
+                <td>lat</td>
+                <td>
+                    <input type="number" name="lat" />
+                </td>
+            </tr>
+            <tr>
+                <td>姓名</td>
+                <td>
+                    <input type="text" name="name" />
+                </td>
+            </tr>
+            <tr>
+                <td>手机</td>
+                <td>
+                    <input type="tel" name="phone" />
+                </td>
+            </tr>
+            <tr>
+                <td>身份证号</td>
+                <td>
+                    <input type="text" name="credentialCode" />
+                </td>
+            </tr>
+            <tr>
+                <td>学院</td>
+                <td>
+                    <input type="text" name="college" />
+                </td>
+            </tr>
+            <tr>
+                <td>专业</td>
+                <td>
+                    <input type="text" name="major" />
+                </td>
+            </tr>
+            <tr>
+                <td>班级</td>
+                <td>
+                    <input type="text" name="className" />
+                </td>
+            </tr>
+            <tr>
+                <td>学号</td>
+                <td>
+                    <input type="text" name="code" />
+                </td>
+            </tr>
+            <tr>
+                <td>当前地址</td>
+                <td>
+                    <input type="text" name="nowLocation" placeholder="河南省-郑州市-惠济区" />
+                </td>
+            </tr>
+            <tr>
+                <td>体温</td>
+                <td>
+                    <input type="number" name="temperature" placeholder="36.6" />
+                </td>
+            </tr>
+        </table>
         <input type="hidden" name="axy-phone" />
         <input type="hidden" name="axy-token" />
     </form>
 
+    <hr/>
+
     <div>
-        手机号：<input type="tel" id="phone" />
-        <a onclick="getVerifyCode()" href="#">获取验证码</a>
-        <br/>
-        验证码：<input type="text" id="verifyCode" />
-        <br/>
-        <button onclick="getAxyToken()">获取 axy-token</button>
+        <table>
+            <tr>
+                <td>手机号</td>
+                <td>
+                    <input type="tel" id="phone" />
+                </td>
+                <td>
+                    <button onclick="getVerifyCode()">获取验证码</button>
+                </td>
+            </tr>
+            <tr>
+                <td>验证码</td>
+                <td>
+                    <input type="text" id="verifyCode" />
+                </td>
+                <td>
+                    <button onclick="getAxyToken()">获取 axy-token</button>
+                </td>
+            </tr>
+        </table>
+
+        <button>保存信息</button>
     </div>
 </body>
 </html>
