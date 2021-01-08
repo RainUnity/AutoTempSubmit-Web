@@ -8,7 +8,12 @@ function getVerifyCode() {
             mode: 'cors'
         }).then((res) => {
             res.text().then((data) => {
-                console.log(data);
+                if(JSON.parse(data).status == 1){
+                    alert("验证码发送成功");
+                }
+                else{
+                    alert("验证码发送失败");
+                }
             });
         });
     }
@@ -27,7 +32,14 @@ function getAxyToken() {
             mode: 'cors'
         }).then((res) => {
             res.text().then((data) => {
-                console.log(data);
+                let axyToken = JSON.parse(data).data;
+                if(axyToken){
+                    document.querySelector("#axy-phone").value = phone;
+                    document.querySelector("#axy-token").value = axyToken;
+                }
+                else{
+                    alert("获取 axy-token 失败");
+                }
             });
         });
     }
@@ -41,4 +53,18 @@ function getDeviceToken() {
         var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
         return v.toString(16);
     }).replaceAll("-","").substring(0,19);
+}
+
+function verifyInfo() {
+    
+}
+
+function saveInfo() {
+    if(!verifyInfo()) {
+        alert("信息不完整");
+        return;
+    }
+
+    //=========保存信息
+
 }

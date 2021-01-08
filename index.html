@@ -14,7 +14,8 @@
 <body class="terminal">
     <header>
         <h2>AutoTempSubmit</h2>
-        <p>指点天下健康日志<mark>自动提交</mark></p>
+        <br/>
+        <p><mark>指点天下健康日志自动提交</mark></p>
     </header>
 
     <form>
@@ -22,78 +23,78 @@
             <tr>
                 <td>学校</td>
                 <td>
-                    <input type="text" name="address" />
+                    <input type="text" id="address" />
                 </td>
             </tr>
             <tr>
                 <td>lng</td>
                 <td>
-                    <input type="number" name="lng" />
+                    <input type="number" id="lng" />
                 </td>
             </tr>
             <tr>
                 <td>lat</td>
                 <td>
-                    <input type="number" name="lat" />
+                    <input type="number" id="lat" />
                 </td>
             </tr>
             <tr>
                 <td>姓名</td>
                 <td>
-                    <input type="text" name="name" />
+                    <input type="text" id="name" />
                 </td>
             </tr>
             <tr>
                 <td>手机</td>
                 <td>
-                    <input type="tel" name="phone" />
+                    <input type="tel" id="tel" />
                 </td>
             </tr>
             <tr>
                 <td>身份证号</td>
                 <td>
-                    <input type="text" name="credentialCode" />
+                    <input type="text" id="credentialCode" />
                 </td>
             </tr>
             <tr>
                 <td>学院</td>
                 <td>
-                    <input type="text" name="college" />
+                    <input type="text" id="college" />
                 </td>
             </tr>
             <tr>
                 <td>专业</td>
                 <td>
-                    <input type="text" name="major" />
+                    <input type="text" id="major" />
                 </td>
             </tr>
             <tr>
                 <td>班级</td>
                 <td>
-                    <input type="text" name="className" />
+                    <input type="text" id="className" />
                 </td>
             </tr>
             <tr>
                 <td>学号</td>
                 <td>
-                    <input type="text" name="code" />
+                    <input type="text" id="code" />
                 </td>
             </tr>
             <tr>
                 <td>当前地址</td>
                 <td>
-                    <input type="text" name="nowLocation" placeholder="河南省-郑州市-惠济区" />
+                    <input type="text" id="nowLocation" placeholder="河南省-郑州市-惠济区" />
                 </td>
             </tr>
             <tr>
                 <td>体温</td>
                 <td>
-                    <input type="number" name="temperature" placeholder="36.6" />
+                    <input type="number" id="temperature" placeholder="36.6" />
                 </td>
             </tr>
         </table>
-        <input type="hidden" name="axy-phone" />
-        <input type="hidden" name="axy-token" />
+        <input type="hidden" id="axy-phone" />
+        <input type="hidden" id="axy-token" />
     </form>
 
     <hr/>
@@ -120,7 +121,11 @@
             </tr>
         </table>
 
-        <button>保存信息</button>
+        <button onclick="saveInfo()">保存信息</button>
     </div>
+
+    <footer style="padding-top: 3rem; text-align: right;">
+        ❤ 2021 - <a href="https://www.conchbrain.club/" target="_blank">ConchBrain</a>
+    </footer>
 </body>
 </html>
