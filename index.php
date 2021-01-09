@@ -17,7 +17,7 @@
         <p><mark>指点天下健康日志自动提交</mark></p>
     </header>
 
-    <form>
+    <form id="info" method="POST">
         <table>
             <tr>
                 <td>学校</td>
@@ -114,7 +114,7 @@
             </tr>
         </table>
 
-        <button onclick="generateInfo()">保存信息</button>
+        <button onclick="saveInfo()">保存信息</button>
     </div>
 
     <footer style="padding-top: 3rem; text-align: right;">
