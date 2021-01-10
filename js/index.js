@@ -81,6 +81,7 @@ function getAxyToken() {
                 if(axyToken){
                     document.querySelector("#axy-phone").value = phone;
                     document.querySelector("#axy-token").value = axyToken;
+                    document.querySelector("#btn_save").removeAttribute("disabled");
                 }
                 else{
                     alert("获取 axy-token 失败");
@@ -89,7 +90,7 @@ function getAxyToken() {
         });
     }
     else{
-        alert("请完善信息");
+        alert("请先输入验证码");
     }
 }
 
