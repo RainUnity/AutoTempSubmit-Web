@@ -1,4 +1,49 @@
 let phone = "";
+let config = {
+    header: {
+        "axy-phone": "",
+        "axy-token": ""
+    },
+    body: {
+        "health":0,
+        "student":"1",
+        "content":{
+            "location":{
+                //学校地址
+                "address":"",
+                "code":"1",
+                //纬度
+                "lng":113.598399,
+                //经度
+                "lat":34.862548
+            },
+            //姓名
+            "name":"",
+            //手机号
+            "phone":"",
+            "credentialType":"身份证",
+            //身份证号码
+            "credentialCode":"",
+            //学院 eg. 信息工程学院
+            "college":"",
+            //专业 eg. 软件工程
+            "major":"",
+            //班级 eg. 软工6班
+            "className":"",
+            //学号
+            "code":"",
+            //当前地址 eg. 河南省-郑州市-惠济区
+            "nowLocation":"",
+            "temperature":"36.6",
+            "observation":"否",
+            "confirmed":"否",
+            "goToHuiBei":"否",
+            "contactIllPerson":"否",
+            "isFamilyStatus":"否",
+            "health":0
+        }
+    }
+};
 
 function getVerifyCode() {
     phone = document.querySelector("#phone").value;
@@ -72,15 +117,49 @@ function verifyInfo() {
     return flag;
 }
 
-function saveInfo() {
+function generateInfo() {
     if(!verifyInfo()) {
         alert("信息不完整");
         return;
     }
 
+    config.header["axy-phone"] = document.querySelector("#axy-phone").value;
+    config.header["axy-token"] = document.querySelector("#axy-token").value;
+
+    config.body.content.location.address = document.querySelector("#address").value;
+    config.body.content.location.lng = document.querySelector("#lng").value;
+    config.body.content.location.lat = document.querySelector("#lat").value;
+    config.body.content.name = document.querySelector("#name").value;
+    config.body.content.phone = document.querySelector("#axy-phone").value;
+    config.body.content.credentialCode = document.querySelector("#credentialCode").value;
+    config.body.content.college = document.querySelector("#college").value;
+    config.body.content.major = document.querySelector("#major").value;
+    config.body.content.className = document.querySelector("#className").value;
+    config.body.content.code = document.querySelector("#code").value;
+    config.body.content.nowLocation = document.querySelector("#nowLocation").value;
+    config.body.content.temperature = document.querySelector("#temperature").value;
+
     if(confirm("确认信息无误？")){
-        document.querySelector("#info").submit();
+        saveInfo();
     }
+}
+
+function saveInfo(){
+    fetch("https://storage.conchbrain.club/autoTempSubmit/set",{
+        method:"PUT",
+        mode:"cors",
+        headers: {
+            'content-type': 'application/json',
+        },
+        body: JSON.stringify({
+            "key": document.querySelector("#axy-phone").value,
+            "value": config
+        })
+    }).then((res)=>{
+        if(res.status == 200) {
+            alert("信息提交成功");
+        }
+    });
 }
 
 getLocation();
